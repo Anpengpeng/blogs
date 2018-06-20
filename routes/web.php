@@ -15,16 +15,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('hello', function () {
+//    dd('q3e');
     return "Hello Laravel!";
 });
 Route::get('/test', 'TestController@index');
+Route::get('test/get', 'TestController@get');
 
 Route::match(['get', 'post'], 'foo', function (){
    return "This is a post or get";
 });
 
 Route::get('/from', function (){
-   return view('from', ['website' => '学习laravel']);
+    return '12';
+    return view('from', ['website' => '学习laravel']);
 });
 Route::view('from', 'from', ['website' => '学习laravel']);
 
@@ -43,3 +46,8 @@ Route::any('student/addHandle', ['uses'=> 'StudentController@addHandle']);
 Route::any('student/upload', ['uses'=> 'StudentController@upload']);
 
 Route::any('login/login', ['uses'=> 'LoginController@login']);
+
+Route::post('login/dealLogin','LoginController@dealLogin');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
