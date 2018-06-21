@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
-class LoginController extends Controller
+class SiteController extends Controller
 {
     /**
      * 后台登录页面
@@ -27,7 +27,7 @@ class LoginController extends Controller
                     ['username', '=', $username],
                     ['password', '=', md5($request->get('password'))],
                 ])->first();
-                Session::put('userlogin','1');
+                Session::put('userlogin','1',1);
                 if ($res) {
                     Session::put('loginsuccess','登录成功',3);
                     return redirect('student/index')->with('loginsuccess','登录成功');

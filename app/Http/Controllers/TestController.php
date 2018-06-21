@@ -12,6 +12,18 @@ class TestController extends Controller
     }
 
     public function get(Request $request) {
+//        Session::put('user','1',3);
+        $request->session()->forget('userlogin');
+
+        $re = $request->session()->all();
+//        $request->session()->flush();
+        var_dump($re);
+        $a = Session::all();
+        var_dump($a);
+//        $data = $request->session()->all();
+//        var_dump($data);
+//        Session::forget('user');
+//        var_dump($data);
 //        $ret = Session::flush();
 //        $ret = Session::forget    ('userlogin_2');
 
@@ -19,8 +31,7 @@ class TestController extends Controller
 //        Session::remove('1');
 //        Session::remove('2');
 //        Session::remove('userlogin_2');
-        $data = Session::all();
-        dd($data);
+
     }
 
     public function post() {

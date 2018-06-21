@@ -25,29 +25,17 @@ Route::match(['get', 'post'], 'foo', function (){
    return "This is a post or get";
 });
 
-Route::get('/from', function (){
-    return '12';
-    return view('from', ['website' => '学习laravel']);
-});
-Route::view('from', 'from', ['website' => '学习laravel']);
+
 
 Route::any('user/getUserInfo', 'UserController@getUserInfo');
+Route::any('student/index', ['uses'=> 'StudentController@index'])->middleware('login.session');
+Route::any('student/add', ['uses'=> 'StudentController@add'])->middleware('login.session');
+Route::any('student/update/{id}', ['uses'=> 'StudentController@update'])->middleware('login.session');
+Route::any('student/delete/{id}', ['uses'=> 'StudentController@delete'])->middleware('login.session');
+Route::any('student/addHandle', ['uses'=> 'StudentController@addHandle'])->middleware('login.session');
+Route::any('student/upload', ['uses'=> 'StudentController@upload'])->middleware('login.session');
+Route::get('site/login', ['uses'=> 'SiteController@login']);
+Route::post('site/dealLogin','SiteController@dealLogin');
 
-Route::any('student/index', ['uses'=> 'StudentController@index']);
-
-Route::any('student/add', ['uses'=> 'StudentController@add']);
-
-Route::any('student/update/{id}', ['uses'=> 'StudentController@update']);
-
-Route::any('student/delete/{id}', ['uses'=> 'StudentController@delete']);
-
-Route::any('student/addHandle', ['uses'=> 'StudentController@addHandle']);
-
-Route::any('student/upload', ['uses'=> 'StudentController@upload']);
-
-Route::any('login/login', ['uses'=> 'LoginController@login']);
-
-Route::post('login/dealLogin','LoginController@dealLogin');
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');

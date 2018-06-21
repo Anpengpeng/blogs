@@ -9,7 +9,7 @@
     <div class="message">{{ $title }}</div>
     <div id="darkbannerwrap"></div>
 
-    <form method="post" action="{{ url('login/dealLogin') }}" class="layui-form" >
+    <form method="post" action="{{ url('site/dealLogin') }}" class="layui-form" >
         {{ csrf_field() }}
         <input name="username" placeholder="用户名"  type="text" lay-verify="required" class="layui-input" >
         <hr class="hr15">
