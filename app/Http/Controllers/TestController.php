@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class TestController extends Controller
@@ -12,6 +13,8 @@ class TestController extends Controller
     }
 
     public function get(Request $request) {
+        var_dump(Auth::user());
+        var_dump(Auth::id());
 //        Session::put('user','1',3);
         $request->session()->forget('userlogin');
 
