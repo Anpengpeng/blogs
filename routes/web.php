@@ -24,7 +24,7 @@ Route::get('test/get', 'TestController@get');
 Route::match(['get', 'post'], 'foo', function (){
    return "This is a post or get";
 });
-
+Route::any('mail/sendTo','MailController@sendTo');
 
 
 Route::any('user/getUserInfo', 'UserController@getUserInfo');

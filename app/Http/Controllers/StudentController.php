@@ -14,6 +14,7 @@ class StudentController extends Controller
     {
 //        $students = DB::table('student')->orderby('action_date', 'desc')->paginate(10);
         $students = Student::orderBy('action_date', 'desc')->paginate(10);
+//        print_r($students->toSql());
         return view('student.index', ['students' => $students]);
     }
 
