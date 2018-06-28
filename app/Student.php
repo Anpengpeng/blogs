@@ -34,4 +34,18 @@ class Student extends Model
         }
         return $arr;
     }
+
+    /**
+     * 根据主键获取用户信息
+     * @param $id
+     * @return mixed
+     */
+    public function find($id) {
+        if (empty($id) || !is_numeric($id)) {
+            return '';
+        }
+        $res = $this->select('id', 'name', 'sex', 'age')->where('id', $id)->get();
+//        return $res;
+        return $res[0];
+    }
 }

@@ -26,6 +26,11 @@ class StudentController extends Controller
     public function update(Request $request, $id)
     {
         $student = DB::table('student')->where('id', $id)->first();
+        /** @var Student $st */
+//        $st = new Student();
+//        $student = $st->find($id);
+        $student = with(new Student())->find($id);
+//        dd($student);
 
         if ($request->isMethod('POST')) {
             $data = $request->input('Student');
