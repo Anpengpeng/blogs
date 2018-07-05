@@ -21,6 +21,7 @@ class StudentController extends Controller
     public function add()
     {
         return view('student.add');
+
     }
 
     public function update(Request $request, $id)
