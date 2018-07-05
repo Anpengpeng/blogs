@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\DB;
 
 class Tcommand extends Command
 {
@@ -37,6 +38,8 @@ class Tcommand extends Command
      */
     public function handle()
     {
+        $res = DB::select("select * from student where name=:name",['name'=>'asf']);
+        dd($res);
         //
 //        dd($this->arguments());
         var_dump($this->argument('param1'));
