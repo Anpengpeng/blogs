@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Session;
 
 class CheckSession
 {
+    protected $timeout = 1200;
     /**
      * Handle an incoming request.
      *
@@ -16,9 +17,20 @@ class CheckSession
      */
     public function handle($request, Closure $next)
     {
-        if (!Session::get('userlogin')) {
+        if (!Session::get('user')) {
             return redirect()->to('site/login');
         }
+        if(!Session::has('lastActiveTime')) {
+            Session::put('lastActiveTime', time());
+        }else{
+            $lastActiveTime = Session::get('lastActiveTime');
+            if ((time() - $lastActiveTime) > $this->timeout) {
+                Session::forget('lastActiveTime');
+                Session::forget('user');
+                return redirect()->to('site/login');
+            }
+        }
+
         return $next($request);
     }
 }
