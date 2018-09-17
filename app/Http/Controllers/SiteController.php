@@ -13,8 +13,7 @@ class SiteController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function login(Request $request) {
-        $title = 'Laravel管理后台登录';
-        return view('login.index', ['title' => $title]);
+        return view('login.index');
     }
 
     public function dealLogin(Request $request) {
@@ -35,7 +34,7 @@ class SiteController extends Controller
                         'nickname' => $res->nickname
                     ];
                     Session::put('user', $user);
-                    return view('backend.index');
+                    return redirect('/index');
                 }else{
                     return redirect()->back()->with('loginerror', '账号或密码错误');
                 }

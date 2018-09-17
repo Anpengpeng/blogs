@@ -6,7 +6,7 @@
 
     </div>
 
-    <div class="message">{{ $title }}</div>
+    <div class="message">{{ env('HOST_TITLE') }}</div>
     <div id="darkbannerwrap"></div>
 
     <form method="post" action="{{ url('site/dealLogin') }}" class="layui-form" >

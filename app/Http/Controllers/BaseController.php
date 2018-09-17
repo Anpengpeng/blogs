@@ -13,12 +13,14 @@ use Illuminate\Support\Facades\Session;
 class BaseController extends Controller
 {
 
-    protected $user;
+    public $user;
 
     public function __construct()
     {
-        if (Session::get('user')) {
+        if (Session::has('user') && !empty(Session::get('user'))) {
            $this->user = Session::get('user');
+        }else{
+            return redirect('/login/index');
         }
     }
 }

@@ -28,14 +28,14 @@
     })
 </script>
 <body>
-@section('header')
-    <div class="head">
-        <div class="title">
-            轻松学会Laravel<br/>
-            <span class="min-title">--玩转Laravel表单</span>
-        </div>
-    </div>
-@show
+{{--@section('header')--}}
+    {{--<div class="head">--}}
+        {{--<div class="title">--}}
+            {{--轻松学会Laravel<br/>--}}
+            {{--<span class="min-title">--玩转Laravel表单</span>--}}
+        {{--</div>--}}
+    {{--</div>--}}
+{{--@show--}}
 <div class="main">
     <div class="menu">
         {{--@section('leftmenu')--}}
