@@ -35,4 +35,21 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'weibo' => [
+        'client_id'     => '2123193034',
+        'client_secret' => '04373eb3268021f9e742ae57010656a6',
+        'redirect'      => env('APP_URL').'login/callback/weibo',
+    ],
+
+    'qq' => [
+        'client_id' => '101074993',
+        'client_secret' => 'b6e469024b5989e7803ad2e1bb679318',
+        'redirect' => env('APP_URL').'login/callback/qq',
+    ],
+    'weixinweb' => [
+        'client_id' => 'wx0ae286e3de4846a9',
+        'client_secret' => '35022b0d4ccd805d822ebed5f7f400a1',
+        'redirect' => env('APP_URL').'login/callback/weixinweb',
+    ],
+
 ];

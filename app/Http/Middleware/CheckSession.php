@@ -27,6 +27,7 @@ class CheckSession
             if ((time() - $lastActiveTime) > $this->timeout) {
                 Session::forget('lastActiveTime');
                 Session::forget('user');
+                return view('login.index', ['title' => env('HOST_TITLE')]);
                 return redirect()->to('site/login');
             }
         }

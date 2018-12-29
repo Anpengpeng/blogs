@@ -17,7 +17,6 @@ class SiteController extends Controller
     }
 
     public function dealLogin(Request $request) {
-        $title = 'Laravel管理后台登录';
         if ($request->isMethod('post')) {
             $username = htmlspecialchars($request->get('username'));
             $isexit = DB::table('admin')->where('username',$username)->first();
@@ -41,7 +40,7 @@ class SiteController extends Controller
             }else{
 //                Session::put('loginerror','您还没有注册，请先注册！',3);
 //                return redirect()->back()->with('loginerror', '您还没有注册，请先注册');
-                return view('login.index', ['title' => $title]);
+                return view('login.index', ['title' => env('HOST_TITLE')]);
             }
         }else{
             return view("login.index", [ 'url' => '', 'msg' => '非法请求', 'time' => 2 ]);

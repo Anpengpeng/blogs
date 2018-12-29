@@ -26,6 +26,12 @@ Route::match([ 'get', 'post' ], 'foo', function () {
 });
 Route::any('mail/sendTo', 'MailController@sendTo');
 
+Route::any('mail/weixin', 'MailController@weixin');
+
+Route::any('api/test', 'SwaggerController@getJSON');
+
+Route::any('api/docs', 'SwaggerController@getView');
+
 
 Route::any('user/getUserInfo', 'UserController@getUserInfo');
 
