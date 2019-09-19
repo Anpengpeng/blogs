@@ -3,7 +3,6 @@
 <div class="login layui-anim layui-anim-up">
     <div class="clear">
         @include('common.message')
-
     </div>
 
     <div class="message">{{ env('HOST_TITLE') }}</div>

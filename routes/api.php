@@ -19,3 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::any('bar', function (){
     return "This is a any";
 });
+
+Route::post('/sso/dologin', 'ApiController@doLogin')->name('ssologin');
+
+Route::post('/sso/logout', 'ApiController@logout')->name('sso.logout');

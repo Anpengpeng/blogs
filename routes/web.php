@@ -24,6 +24,9 @@ Route::get('test/get', 'TestController@get');
 Route::match([ 'get', 'post' ], 'foo', function () {
     return "This is a post or get";
 });
+
+
+
 Route::any('mail/sendTo', 'MailController@sendTo');
 
 Route::any('mail/weixin', 'MailController@weixin');
@@ -53,3 +56,7 @@ Route::middleware(['login.session'])->group(function () {
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/sso/checktoken', 'ApiController@checkToken')->name('sso.check');
+
+
